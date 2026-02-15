@@ -34,7 +34,7 @@ function Dashboard() {
 
 
   const buildUrl = (customPage) => {
-    let url = `http://localhost:5000/api/transactions?page=${customPage}&limit=5`;
+    let url = `${process.env.REACT_APP_API_URL}/api/transactions?page=${customPage}&limit=5`;
 
     if (search.trim()) url += `&search=${search}`;
     if (category !== "All") url += `&category=${category}`;
@@ -78,7 +78,7 @@ function Dashboard() {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/transactions/categories",
+        `${process.env.REACT_APP_API_URL}/api/transactions/categories`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`
@@ -95,7 +95,7 @@ function Dashboard() {
   const fetchSummary = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/transactions/summary",
+        `${process.env.REACT_APP_API_URL}/api/transactions/summary`,
         {
           headers: { Authorization: `Bearer ${user.token}` }
         }
@@ -116,8 +116,8 @@ function Dashboard() {
 
       const [transactionRes, summaryRes, categoryRes] = await Promise.all([
         axios.get(buildUrl(1), tokenHeader),
-        axios.get("http://localhost:5000/api/transactions/summary", tokenHeader),
-        axios.get("http://localhost:5000/api/transactions/categories", tokenHeader)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/transactions/summary`, tokenHeader),
+        axios.get(`${process.env.REACT_APP_API_URL}/api/transactions/categories`, tokenHeader)
       ]);
 
       setTransactions(transactionRes.data.transactions);
@@ -205,7 +205,7 @@ function Dashboard() {
             };
 
             await axios.post(
-              "http://localhost:5000/api/transactions",
+              `${process.env.REACT_APP_API_URL}/api/transactions`,
               newTransaction,
               {
                 headers: { Authorization: `Bearer ${user.token}` }
@@ -322,7 +322,7 @@ function Dashboard() {
                   if (!confirmDelete) return;
 
                   await axios.delete(
-                    `http://localhost:5000/api/transactions/${t._id}`,
+                    `${process.env.REACT_APP_API_URL}/api/transactions/${t._id}`,
                     {
                       headers: { Authorization: `Bearer ${user.token}` }
                     }

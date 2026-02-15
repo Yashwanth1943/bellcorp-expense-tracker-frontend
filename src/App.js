@@ -14,11 +14,16 @@ function App() {
     <Routes>
       {/* Root Redirect */}
       <Route
-        path="/login"
+        path="/"
         element={
-          user ? <Navigate to="/dashboard" replace /> : <Login />
+          user ? (
+            <Navigate to="/dashboard" replace />
+          ) : (
+            <Navigate to="/login" replace />
+          )
         }
       />
+
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
