@@ -1,0 +1,162 @@
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4338ca;
+}
+
+input, select {
+  padding: 6px;
+  margin: 5px 5px 5px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.loader {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #4f46e5;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.badge-Food {
+  background-color: #16a34a;
+}
+
+.badge-Transport {
+  background-color: #2563eb;
+}
+
+.badge-Rent {
+  background-color: #dc2626;
+}
+
+.badge-Shopping {
+  background-color: #9333ea;
+}
+
+.category-list {
+  margin-top: 15px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: 0.2s ease;
+}
+
+.category-item:hover {
+  background: #eef2ff;
+}
+
+.category-amount {
+  font-weight: 600;
+}
+
+.total-card {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 18px 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-card h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.total-card h1 {
+  margin: 0;
+  font-size: 26px;   /* smaller amount */
+  font-weight: 600;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+}
+
+.logout-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background: #4338ca;
+}
+
+.empty-state {
+  text-align: center;
+  color: gray;
+  padding: 20px;
+}
+
+.success-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #16a34a;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-size: 14px;
+  z-index: 1000;
+}
