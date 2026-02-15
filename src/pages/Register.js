@@ -75,10 +75,13 @@ function Register() {
 
       </form>
 
-      <div className="auth-link">
-        Already have an account? <Link to="/login">Login</Link>
+      <div className="auth-switch">
+        Already have an account?{" "}
+        <span onClick={() => navigate("/login")}>
+            Login
+        </span>
       </div>
-    </div>
+      </div>
   </div>
 );
 

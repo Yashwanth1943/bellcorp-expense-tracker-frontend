@@ -137,11 +137,12 @@ function Dashboard() {
       {success && <div className="success-toast">{success}</div>}
 
       <div className="dashboard-header">
-        <h2>Welcome, {user?.name} 👋</h2>
-
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
+        <div className="user-info">
+          <h2>Welcome, {user?.name} 👋</h2>
+          <button className="logout-btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
       </div>
 
       {/* Summary Card */}

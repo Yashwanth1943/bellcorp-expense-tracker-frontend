@@ -29,13 +29,14 @@ function Login() {
       navigate("/dashboard");
 
     } catch (err) {
-        if (err.response && err.response.status === 401) {
-          setError("Invalid email or password");
-        } else {
-          setError("Something went wrong. Please try again.");
-        }
+      if (err.response && err.response.status === 401) {
+        setError("Invalid email or password");
+      } else {
+        setError("Something went wrong. Please try again.");
       }
-
+    } finally {
+      setLoading(false);   // 🔥 VERY IMPORTANT
+    }
   };
 
   return (
@@ -45,37 +46,35 @@ function Login() {
 
       <form onSubmit={handleSubmit}>
         <input
-          className="auth-input"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        
 
         <input
-          className="auth-input"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
-        {error && <p className="error-message">{error}</p>}
-
-        <button className="auth-button" type="submit" disabled={loading}>
+        <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
-        
+        {error && <div className="error-message">{error}</div>}
       </form>
+      <p className="auth-switch">
+        Don't have an account?{" "}
+        <span onClick={() => navigate("/register")}>
+          Create Account
+        </span>
+      </p>
 
-      <div className="auth-link">
-        New user? <Link to="/register">Create account</Link>
-      </div>
     </div>
   </div>
+
 );
 
 }

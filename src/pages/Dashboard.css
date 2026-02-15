@@ -121,7 +121,7 @@ input, select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .dashboard-header h2 {
@@ -159,4 +159,47 @@ input, select {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   font-size: 14px;
   z-index: 1000;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content : space-between;
+  width: 100%;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  align-items: flex-end;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .user-info {
+    gap: 8px;
+  }
+
+  .logout-btn {
+    padding: 3px 8px;
+    font-size: 12px;
+  }
 }
