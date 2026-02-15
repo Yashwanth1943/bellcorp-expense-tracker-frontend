@@ -134,7 +134,7 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  }, [user]);
+  }, [user, search, category, startDate, endDate]);
   
   useEffect(() => {
     loadDashboard();
@@ -165,10 +165,10 @@ function Dashboard() {
       <div className="card">
         <div className="total-card">
           <h2>Total Expense</h2>
-          <h1>₹{summary.totalExpense}</h1>
+          <h1>₹{summary?.totalExpense || 0}</h1>
         </div>
         <h3>Category Breakdown:</h3>
-        {Object.keys(summary.categoryBreakdown).length === 0 ? (
+        {summary?.categoryBreakdown && Object.keys(summary.categoryBreakdown).length === 0 ? (
           <p className="empty-state">No data available</p>
         ) : (
           <div className="category-list">
