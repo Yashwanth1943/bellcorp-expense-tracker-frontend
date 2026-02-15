@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useCallback } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { useSearchParams } from "react-router-dom";
@@ -106,7 +106,9 @@ function Dashboard() {
     }
   };
 
-  const loadDashboard = async () => {
+  const loadDashboard = useCallback(async () => {
+    if (!user) return;
+
     try {
       setLoading(true);
 
@@ -132,14 +134,12 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
-
-  useEffect(() => {
-    if (!user) return;
-
-    loadDashboard();
-
   }, [user]);
+  
+  useEffect(() => {
+    loadDashboard();
+  }, [loadDashboard]);
+
 
   if (loading) {
       return (
