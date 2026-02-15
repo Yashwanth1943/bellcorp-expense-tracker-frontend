@@ -33,7 +33,7 @@ function Dashboard() {
   };
 
 
-  const buildUrl = (customPage) => {
+  const buildUrl = useCallback((customPage) => {
     let url = `${process.env.REACT_APP_API_URL}/api/transactions?page=${customPage}&limit=5`;
 
     if (search.trim()) url += `&search=${search}`;
@@ -42,7 +42,7 @@ function Dashboard() {
     if (endDate) url += `&endDate=${endDate}`;
 
     return url;
-  };
+  },[search, category, startDate, endDate]);
 
   const fetchTransactions = async (customPage = 1) => {
     try {
@@ -117,7 +117,7 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  }, [user, search, category, startDate, endDate]);
+  }, [user,buildUrl]);
   
   useEffect(() => {
     loadDashboard();
