@@ -15,6 +15,7 @@ function Dashboard() {
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
   const [hasMore, setHasMore] = useState(true);
 
+  const [searchInput, setSearchInput] = useState(searchParams.get("search") || "");
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [category, setCategory] = useState(searchParams.get("category") || "All");
   const [startDate, setStartDate] = useState(searchParams.get("startDate") || "");
@@ -223,8 +224,8 @@ function Dashboard() {
         <input
           type="text"
           placeholder="Search by title..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
 
         <select
@@ -252,7 +253,8 @@ function Dashboard() {
           onChange={(e) => setEndDate(e.target.value)}
         />
 
-        <button onClick={() => fetchTransactions(1)}>
+        <button onClick={() => {setSearch(searchInput);
+           fetchTransactions(1)}}>
           Apply Filters
         </button>
       </div>
