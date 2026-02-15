@@ -75,22 +75,22 @@ function Dashboard() {
     }
   };  
 
-  const fetchCategories = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/transactions/categories`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`
-          }
-        }
-      );
+  // const fetchCategories = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `${process.env.REACT_APP_API_URL}/api/transactions/categories`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${user.token}`
+  //         }
+  //       }
+  //     );
 
-      setCategories(data);
-    } catch (error) {
-      console.error("Transaction fetch failed:", error.message);
-    }
-  };
+  //     setCategories(data);
+  //   } catch (error) {
+  //     console.error("Transaction fetch failed:", error.message);
+  //   }
+  // };
 
   const fetchSummary = async () => {
     try {
